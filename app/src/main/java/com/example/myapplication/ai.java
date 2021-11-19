@@ -9,12 +9,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.InputStream;
@@ -31,10 +36,12 @@ public class ai extends AppCompatActivity {
     /*데이터베이스 저장 구역
      * foodsearch화면에서 리스트 클릭시 그 내용들이 데이터베이스에 저장되어 이 화면에
      * 리스트로 나타나게 하는 영역*/
-    EditText editText, editText2;
-    ListView listView, listView2;
-    ArrayList<String> items = new ArrayList<String>();
-    ArrayList<String> items1 = new ArrayList<String>();
+
+    ListView listView;
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance(); //파이어베이스
+    private DatabaseReference databaseReference = database.getReference("food_impomation"); //파이어베이스
+
 
     DBHelper dbHelper;
     SQLiteDatabase db = null;
@@ -54,6 +61,8 @@ public class ai extends AppCompatActivity {
         dbHelper = new DBHelper(this, 3);
         db = dbHelper.getWritableDatabase();    // 읽기/쓰기 모드로 데이터베이스를 오픈
 
+
+
     }
 
     public void insert(View v) {//데이터베이스 칼로리 정보삽입구역
@@ -61,13 +70,15 @@ public class ai extends AppCompatActivity {
         Intent intent = getIntent();
         String name = " ";
         String kcal =" ";
-
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1);
 
         try {
-            name = intent.getStringExtra("name");
-            kcal = intent.getStringExtra("kcal");
+            name = intent.getStringExtra("name");//식품이름 데이터 넘겨받기
+            kcal = intent.getStringExtra("kcal");//칼로리 데이터 넘겨받기
 
-            db.execSQL("INSERT INTO tableName VALUES ('" + name + "', '" + kcal + "');");
+            db.execSQL("INSERT INTO tableName VALUES ('" + name + "', '" + kcal + "');"); //데이터베이스 저장
+            databaseReference.child(name).setValue(kcal); //파이어베이스 저장
+
         }catch (NullPointerException e) {
             Toast.makeText(ai.this, "오류남", Toast.LENGTH_LONG).show();
         }
@@ -85,17 +96,12 @@ public class ai extends AppCompatActivity {
             String result = name1 + "\n" + kcal1;
             adapter.add(result);
         }
-
-        /*
-        cursor.moveToFirst();
-        cursor.moveToPrevious();
-        cursor.moveToPosition(2);
-        */
-
         listView.setAdapter(adapter);
+
     }
 
     public void delete(View v) {//데이터베이스 칼로리 정보 삭제구역
+<<<<<<< HEAD
         String sqlDelete = "DELETE FROM tableName";
         db.execSQL(sqlDelete);
         adapter.clear();
@@ -111,5 +117,14 @@ public class ai extends AppCompatActivity {
         String pDate = sdf.format(cal.getTime());
         database.execSQL("DELETE FROM TB_CHARGE_HISTORYWHERE_start_data <"+""+pDate + "00:00:00");
     }*/
+=======
+            String sqlDelete = "DELETE FROM tableName" ;
+            db.execSQL(sqlDelete);
+            adapter.clear();
+            adapter.notifyDataSetChanged();
+            listView.setAdapter(adapter);
+
+    }
+>>>>>>> origin/master
 
 }

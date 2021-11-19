@@ -99,9 +99,6 @@ public class foodsearch extends AppCompatActivity {
                                                // intent.putExtra("name", adapter.get(position).getSERVING_WT());//식품이름으로 데이터 보내기
                                                 intent.putExtra("name",array[position*8].toString());//식품이름
                                                 intent.putExtra("kcal",array[position*8+2]);//칼로리
-
-
-
                                                 startActivity(intent);
                                             }
                                         });
