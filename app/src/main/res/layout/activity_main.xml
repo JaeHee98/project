@@ -9,49 +9,88 @@
     tools:context=".MainActivity">
 
 
-
-
-    <Button
+    <ImageButton
         android:id="@+id/search_btn"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginLeft="50dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="230dp"
-        android:background="@drawable/buttonshape"
+        android:background="@drawable/search2" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="340dp"
         android:text="검색"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/step_btn"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginLeft="220dp"
-        android:background="@drawable/buttonshape"
-        android:text="걸음수"
+    <ImageButton
+        android:id="@+id/nutrient_btn"
+        android:layout_width="105dp"
+        android:layout_height="116dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/nutrient6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="340dp"
+        android:text="영양소"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/ai_btn"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="400dp"
-        android:background="@drawable/buttonshape"
+        android:layout_marginTop="430dp"
+        android:background="@drawable/list2" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="565dp"
         android:text="내 리스트"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
-    <Button
+    <ImageButton
         android:id="@+id/allergy_btn"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="220dp"
-        android:background="@drawable/buttonshape"
-        android:text="알레르기"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/caution" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="565dp"
+        android:text="주의성분"
         android:textColor="#000000"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
+
+    <ImageButton
+        android:id="@+id/step_btn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/step2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="100dp"
+        android:text="걸음수"
+        android:textColor="#000000"
+        android:textSize="15sp" />
 </RelativeLayout>

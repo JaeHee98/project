@@ -96,14 +96,13 @@ public class ai extends AppCompatActivity {
     }
 
     public void delete(View v) {//데이터베이스 칼로리 정보 삭제구역
-
-        Intent intent = getIntent();
-
-        db = dbHelper.getWritableDatabase();    // 읽기/쓰기 모드로 데이터베이스를 오픈
-
-
-
+        String sqlDelete = "DELETE FROM tableName";
+        db.execSQL(sqlDelete);
+        adapter.clear();
+        adapter.notifyDataSetChanged();
+        listView.setAdapter(adapter);
     }
+
     //날짜 기준으로 초기화 하기
 /*   public static void delete1(SQLiteDatabase database){
         Calendar cal = Calendar.getInstance();

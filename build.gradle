@@ -18,6 +18,7 @@ allprojects {
     repositories {
 
     }
+
 }
 
 task clean(type: Delete) {

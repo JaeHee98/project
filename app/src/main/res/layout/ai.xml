@@ -23,6 +23,7 @@
             android:onClick="delete"
             android:fontFamily="@font/nanum2"
             android:text="delete" />
+
         <Button
             android:id="@+id/button3"
             android:fontFamily="@font/nanum2"
